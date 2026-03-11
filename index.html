@@ -6,7 +6,7 @@
   <title>Meteo Genova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,30 +14,35 @@
     <section class="weather-card">
       <div class="topbar">
         <div>
-          <p class="eyebrow">Previsioni</p>
+          <p class="eyebrow">Previsioni meteo</p>
           <h1 id="cityName">Genova</h1>
         </div>
         <div class="badge" id="updatedAt">--:--</div>
       </div>
 
-      <section class="current-weather">
-        <div class="current-left">
-          <div class="icon-big" id="currentIcon">☀️</div>
-          <div>
-            <p class="condition" id="currentCondition">Caricamento...</p>
-            <p class="details" id="currentDetails">Attendi un momento</p>
+      <section class="main-layout">
+        <section class="current-weather">
+          <div class="current-header">
+            <span class="today-label">Oggi</span>
           </div>
-        </div>
 
-        <div class="current-right">
-          <div class="temp-now">
-            <span id="currentTemp">--</span><span class="unit">°</span>
+          <div class="current-main">
+            <div class="icon-big" id="currentIcon">☀️</div>
+
+            <div class="current-info">
+              <p class="condition" id="currentCondition">Caricamento...</p>
+              <p class="details" id="currentDetails">Attendi un momento</p>
+            </div>
+
+            <div class="temp-now">
+              <span id="currentTemp">--</span><span class="unit">°</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="forecast-grid" id="forecastGrid">
-        <!-- cards giorni generate da JS -->
+        <section class="forecast-grid" id="forecastGrid">
+          <!-- 3 giorni successivi -->
+        </section>
       </section>
     </section>
   </main>

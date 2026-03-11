@@ -69,16 +69,20 @@ async function loadWeather() {
     const grid = document.getElementById("forecastGrid");
     grid.innerHTML = "";
 
-    data.daily.time.forEach((day, index) => {
+    /* salta oggi e mostra solo i 3 giorni successivi */
+    for (let index = 1; index <= 3; index++) {
+      const day = data.daily.time[index];
       const info = getWeatherInfo(data.daily.weather_code[index]);
 
       const card = document.createElement("article");
       card.className = "day-card";
 
       card.innerHTML = `
-        <div class="day-name">${capitalize(getDayName(day))}</div>
+        <div class="day-main">
+          <div class="day-name">${capitalize(getDayName(day))}</div>
+          <div class="day-desc">${info.text}</div>
+        </div>
         <div class="day-icon">${info.icon}</div>
-        <div class="day-desc">${info.text}</div>
         <div class="day-temps">
           <span class="max-temp">${Math.round(data.daily.temperature_2m_max[index])}°</span>
           <span class="min-temp">${Math.round(data.daily.temperature_2m_min[index])}°</span>
@@ -86,7 +90,7 @@ async function loadWeather() {
       `;
 
       grid.appendChild(card);
-    });
+    }
   } catch (error) {
     document.getElementById("currentCondition").textContent = "Errore caricamento meteo";
     document.getElementById("currentDetails").textContent = "Controlla connessione o API";
